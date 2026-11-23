@@ -1,0 +1,123 @@
+{
+  "dataset": "Inspec (Hulth 2003)",
+  "sha256": "0cca8dbc5ec28e6638cf75a38263f341d94743259252e6b7fff2f02e6028610f",
+  "eda": {
+    "splits": {
+      "train": {
+        "raw": 1000,
+        "missing": 0,
+        "duplicate": 0,
+        "documents": 1000,
+        "median_words": 124.0,
+        "mean_gold": 9.79,
+        "candidate_coverage": 0.7197
+      },
+      "validation": {
+        "raw": 500,
+        "missing": 0,
+        "duplicate": 0,
+        "documents": 500,
+        "median_words": 114.5,
+        "mean_gold": 9.15,
+        "candidate_coverage": 0.7045
+      },
+      "test": {
+        "raw": 500,
+        "missing": 0,
+        "duplicate": 0,
+        "documents": 500,
+        "median_words": 122.0,
+        "mean_gold": 9.83,
+        "candidate_coverage": 0.7244
+      }
+    },
+    "document_lengths": {
+      "0": 190,
+      "1": 533,
+      "2": 642,
+      "3": 410,
+      "4": 168,
+      "5": 57
+    },
+    "reference_lengths": {
+      "1": 2643,
+      "2": 9856,
+      "3": 4951,
+      "4": 1357,
+      "5": 467
+    }
+  },
+  "training": {
+    "candidates": 104006,
+    "positives": 7043,
+    "checkpoints": [
+      {
+        "epoch": 1,
+        "validation_f1_at_10": 0.31013
+      },
+      {
+        "epoch": 2,
+        "validation_f1_at_10": 0.3215
+      },
+      {
+        "epoch": 4,
+        "validation_f1_at_10": 0.32399
+      },
+      {
+        "epoch": 8,
+        "validation_f1_at_10": 0.32387
+      },
+      {
+        "epoch": 12,
+        "validation_f1_at_10": 0.32461
+      },
+      {
+        "epoch": 16,
+        "validation_f1_at_10": 0.32603
+      },
+      {
+        "epoch": 20,
+        "validation_f1_at_10": 0.32615
+      }
+    ]
+  },
+  "chosen_epoch": 20,
+  "held_out_test": {
+    "learned": {
+      "5": {
+        "precision": 0.4008,
+        "recall": 0.24279,
+        "f1": 0.28441
+      },
+      "10": {
+        "precision": 0.3202,
+        "recall": 0.37012,
+        "f1": 0.32282
+      }
+    },
+    "tfidf": {
+      "5": {
+        "precision": 0.1616,
+        "recall": 0.10415,
+        "f1": 0.11941
+      },
+      "10": {
+        "precision": 0.1392,
+        "recall": 0.17774,
+        "f1": 0.14619
+      }
+    },
+    "rake": {
+      "5": {
+        "precision": 0.1396,
+        "recall": 0.09027,
+        "f1": 0.1022
+      },
+      "10": {
+        "precision": 0.1284,
+        "recall": 0.16199,
+        "f1": 0.13376
+      }
+    }
+  }
+}

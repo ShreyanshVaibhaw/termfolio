@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f6f4">
+  <title>Termfolio | Keyword extraction</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/workbench.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="Conversations">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">T</span>Termfolio</div>
+      <button type="button" class="new-chat" id="new-chat"><span aria-hidden="true">+</span> New chat</button>
+      <nav class="history" aria-labelledby="history-heading">
+        <h2 id="history-heading">This session</h2>
+        <ul id="chat-list"></ul>
+      </nav>
+      <div class="sidebar-foot">
+        <button type="button" class="quiet" id="open-methods">About the rankers <span aria-hidden="true">↗</span></button>
+        <span>Project 4 / Group 9</span>
+      </div>
+    </aside>
+
+    <main class="chat">
+      <header class="chat-bar">
+        <button type="button" class="menu" id="menu" aria-controls="sidebar" aria-expanded="false" aria-label="Show conversations"><span></span></button>
+        <h1>Keyword extraction</h1>
+        <button type="button" class="quiet" id="load-example">Try an example <span aria-hidden="true">↗</span></button>
+      </header>
+
+      <div class="transcript" id="transcript" tabindex="0" aria-label="Chat transcript">
+        <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
+        <section class="empty-chat" id="empty-chat" hidden>
+          <span class="brand-mark" aria-hidden="true">T</span>
+          <h2>What are you reading?</h2>
+          <p>Send an English passage or attach a document to pull out its main terms.</p>
+          <button type="button" class="quiet" id="empty-example">Try the rain gardens example <span aria-hidden="true">↗</span></button>
+        </section>
+      </div>
+
+      <div class="composer-area">
+        <form class="composer" id="extract-form">
+          <div class="attachment" id="attachment" hidden><span id="file-name"></span><button type="button" id="remove-file" aria-label="Remove attachment">×</button></div>
+          <textarea id="source-text" aria-label="Document text" maxlength="60000" spellcheck="false" placeholder="Paste a document or attach a file…" rows="2"></textarea>
+          <div class="composer-controls">
+            <label for="document" class="attach" title="Attach TXT, Markdown or PDF"><span class="paperclip" aria-hidden="true"></span><span class="attach-text">Attach</span></label>
+            <input type="file" class="visually-hidden" id="document" accept=".txt,.md,.pdf" aria-label="Attach a document">
+            <label class="method-label"><span class="visually-hidden">Ranking method</span>
+              <select id="method"><option value="learned">Learned ranker</option><option value="tfidf">TF-IDF</option><option value="rake">RAKE</option></select>
+            </label>
+            <label class="count-label" title="Number of ranked terms">Top <input type="number" id="limit" min="1" max="30" value="8" required aria-label="Top results"></label>
+            <button class="send" type="submit" id="extract-button" aria-label="Send for extraction" title="Send for extraction"><span aria-hidden="true">↑</span></button>
+          </div>
+        </form>
+        <p class="error" id="message" role="alert" hidden></p>
+        <p class="composer-foot"><span>TXT, MD, PDF up to 5 MB</span><span class="keyboard-tip">Enter to send · Shift + Enter for a new line</span></p>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="methods-dialog" aria-labelledby="methods-heading">
+    <div class="dialog-header"><h2 id="methods-heading">About the rankers</h2><form method="dialog"><button class="quiet" type="submit" autofocus>Close</button></form></div>
+    <dl>
+      <dt>Learned ranker</dt><dd>Logistic regression trained on Inspec. It uses where a phrase appears, how often it occurs, and other candidate features.</dd>
+      <dt>TF-IDF</dt><dd>Rewards terms that recur in the source and are rare in the training abstracts.</dd>
+      <dt>RAKE</dt><dd>Rewards content words that appear together in phrases.</dd>
+    </dl>
+    <p>Higher scores rank first within each reply. The methods use different score scales.</p>
+    <p id="benchmark-summary"></p>
+  </dialog>
+</body>
+</html>
