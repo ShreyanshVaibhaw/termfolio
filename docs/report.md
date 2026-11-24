@@ -5,8 +5,6 @@
 | Name | Roll number |
 | --- | --- |
 | Shreyansh Vaibhav | 2401201094 |
-| Tushar Kataria | 2401201083 |
-| Nandini Kumari | 2401201085 |
 | Harsh Nagal | 2401201089 |
 | Dipesh Singh | 2401201091 |
 | Tanish Sabharwal | 2401201096 |

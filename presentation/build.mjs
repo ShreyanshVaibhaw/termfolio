@@ -16,8 +16,7 @@ const c = { cream: '#FFF8F4', white: '#FFFFFF', ink: '#281B32', aubergine: '#563
 const font = { display: 'Trebuchet MS', body: 'Verdana' };
 const noLine = { fill: 'none', width: 0 };
 const roster = [
-  ['Shreyansh Vaibhav', '2401201094'], ['Tushar Kataria', '2401201083'],
-  ['Nandini Kumari', '2401201085'], ['Harsh Nagal', '2401201089'],
+  ['Shreyansh Vaibhav', '2401201094'], ['Harsh Nagal', '2401201089'],
   ['Dipesh Singh', '2401201091'], ['Tanish Sabharwal', '2401201096'],
 ];
 
